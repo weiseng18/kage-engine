@@ -11,14 +11,20 @@ k = Kage(ignore_component_version=True)
 k.font = Sans()
 
 
+# get unicode 0x6708 then strip 0x
+def getUnicode(kanji):
+    return hex(ord(kanji))[2:]
+
+
 # generate a glyph
-def gen(i: int):
-    key = f'u{i:x}'
+def gen(kanji):
+    idx = getUnicode(kanji)
+    key = 'u' + idx
     canvas = k.make_glyph(name=key)
 
     # Save as PNG
     xml_string = canvas.tostring()
-    svg2png(bytestring=xml_string, write_to='output.png')
+    svg2png(bytestring=xml_string, write_to=f'output/{idx}.png')
 
     # Save as SVG
     # canvas.saveas(os.path.join('./output', f'{key}.svg'))
@@ -40,7 +46,7 @@ def readData():
 
 def main():
     readData()
-    gen(0x6708)
+    gen('林')
 
 
 main()
