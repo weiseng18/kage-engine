@@ -53,6 +53,12 @@ def readData():
         k.components.push(line[0], line[2])
 
 
+def make_glyph(strokes_list):
+    canvas = k.make_glyph_with_strokes_list(strokes_list)
+    xml_string = canvas.tostring()
+    svg2png(bytestring=xml_string, write_to='output.png')
+
+
 def main():
     readData()
     gen('林')
