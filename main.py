@@ -19,6 +19,7 @@ def getUnicode(kanji):
 # get strokes list
 def getStrokesList(kanji):
     strokes_list = k.get_strokes_list_given_glyph(kanji)
+    print("---- Strokes list for kanji:", kanji)
     for stroke in strokes_list:
         print("\t", stroke, "\n", end="")
 
