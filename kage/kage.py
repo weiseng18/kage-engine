@@ -21,6 +21,7 @@ class Kage:
 
     def make_glyph(self, name: str) -> svgwrite.Drawing:
         data = self.components.search(name)
+        print("make_glyph [data]:", data)
         canvas = svgwrite.Drawing(size=('200', '200'))
         return self.make_glyph_with_data(canvas, data)
 
@@ -56,6 +57,10 @@ class Kage:
                             float(columns[10])
                         )
                     )
+
+        print("get_each_strokes [strokes_list]:")
+        for stroke in strokes_list:
+            print("\t", stroke, "\n", end="")
 
         return strokes_list
 
