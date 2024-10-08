@@ -34,6 +34,11 @@ class Kage:
             strokes_list = self.get_each_strokes(data)
             return self.font.drawer(canvas, strokes_list)
 
+    # Generate a glyph given strokes list
+    def make_glyph_with_strokes_list(self, strokes_list: list[Stroke]) -> svgwrite.Drawing:
+        canvas = svgwrite.Drawing(size=('200', '200'))
+        return self.font.drawer(canvas, strokes_list)
+
     def get_each_strokes(self, data: str) -> list[Stroke]:
         strokes_list = []
         strokes = data.split('$')
