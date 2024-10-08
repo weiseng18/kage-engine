@@ -39,6 +39,13 @@ class Kage:
         canvas = svgwrite.Drawing(size=('200', '200'))
         return self.font.drawer(canvas, strokes_list)
 
+    # Given a glyph, return its strokes list
+    def get_strokes_list_given_glyph(self, kanji):
+        name = 'u' + hex(ord(kanji))[2:]
+        data = self.components.search(name)
+        strokes_list = self.get_each_strokes(data)
+        return strokes_list
+
     def get_each_strokes(self, data: str) -> list[Stroke]:
         strokes_list = []
         strokes = data.split('$')

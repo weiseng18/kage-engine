@@ -16,6 +16,13 @@ def getUnicode(kanji):
     return hex(ord(kanji))[2:]
 
 
+# get strokes list
+def getStrokesList(kanji):
+    strokes_list = k.get_strokes_list_given_glyph(kanji)
+    for stroke in strokes_list:
+        print("\t", stroke, "\n", end="")
+
+
 # generate a glyph
 def gen(kanji):
     idx = getUnicode(kanji)
