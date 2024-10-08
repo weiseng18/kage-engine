@@ -22,6 +22,7 @@ def getStrokesList(kanji):
     print("---- Strokes list for kanji:", kanji)
     for stroke in strokes_list:
         print("\t", stroke, "\n", end="")
+    return strokes_list
 
 
 # generate a glyph
