@@ -70,10 +70,6 @@ class Kage:
                         )
                     )
 
-        print("get_each_strokes [strokes_list]:")
-        for stroke in strokes_list:
-            print("\t", stroke, "\n", end="")
-
         return strokes_list
 
     def get_each_strokes_of_component(self, component_data, x1, y1, x2, y2, sx, sy, sx2, sy2) -> list[Stroke]:
