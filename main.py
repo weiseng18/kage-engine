@@ -61,7 +61,17 @@ def make_glyph(strokes_list):
 
 def main():
     readData()
-    gen('林')
+
+    # Idea:
+    # - Find kanji, where a portion of the kanji closely matches what you want
+    # - Strokes list is a list of the strokes, so just pick what you need
+    # - Finally, combine
+
+    sl1 = getStrokesList('杜')
+    sl2 = getStrokesList('駂')
+
+    strokes_list = sl1[:4] + sl2[4:]
+    make_glyph(strokes_list)
 
 
 main()
